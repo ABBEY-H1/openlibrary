@@ -14,7 +14,7 @@
         <th>Nationality</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="authors.length > 1">
       <tr *ngFor="let author of authors">
         <td>{{author.id}}</td>
         <td>{{author.name}}</td>
