@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Table</title>
+  <link rel="stylesheet" href="admin.component.css">
+</head>
+
+<h1>ADMIN TABLE</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>UserId</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody *ngIf = "admins.length > 1">
+      <tr *ngFor = "let admin of admins">
+        <td>{{admin.id}}</td>
+        <td>{{admin.name}}</td>
+        <td>{{admin.username}}</td>
+        <td>{{admin.password}}</td>
+      </tr>
+    </tbody>
+  </table>
+</html>  

@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.9'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.xfactor' //Company name
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'//Java 11
+
+repositories { //All jar files are kept
+	mavenCentral() //mvncentral.com
+}
+
+dependencies { 
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //addsthe library for SpringJPA
+	implementation 'org.springframework.boot:spring-boot-starter-web' //resfull APIs
+	runtimeOnly 'com.h2database:h2' //h2 DB used only for test// USE H2 to SQL for deployment
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "org.springdoc:springdoc-openapi-ui:1.6.4"
+	// implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

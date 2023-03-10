@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Book Table</title>
+  <link rel="stylesheet" href="publisher.component.css">
+</head>
+<h1>PUBLISHER TABLE</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let publisher of publishers">
+        <td>{{publisher.id}}</td>
+        <td>{{publisher.name}}</td>
+        <td>{{publisher.phone}}</td>
+        <td>{{publisher.email}}</td>
+        <td>{{publisher.address}}</td>
+      </tr>
+    </tbody>
+  </table>
+</html>

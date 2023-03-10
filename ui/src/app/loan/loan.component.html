@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Table</title>
+  <link rel="stylesheet" href="loan.component.css">
+</head>
+<h1>LOAN TABLE</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Student-ID</th>
+        <th>Book-ID</th>
+        <th>Check-Out Date</th>
+        <th>Due Date</th>
+        <th>Return Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>{{loan.id}}</td>
+        <td>{{loan.studentId}}</td>
+        <td>{{loan.bookId}}</td>
+        <td>{{loan.checkOutDate}}</td>
+        <td>{{loan.dueDate}}</td>
+        <td>{{loan.returnDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Table</title>
+  <link rel="stylesheet" href="student.component.css">
+</head>
+<h1>STUDENT TABLE</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Roll No.</th>
+        <th>Phone No.</th>
+        <th>Birth-Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.dept}}</td>
+        <td>{{student.rollNo}}</td>
+        <td>{{student.mobile}}</td>
+        <td>{{student.birthDay}}</td>
+      </tr>
+    </tbody>
+  </table>
+</html>
