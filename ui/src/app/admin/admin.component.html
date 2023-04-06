@@ -7,22 +7,27 @@
 </head>
 
 <h1>ADMIN TABLE</h1>
-
+<button type="button" class="btn-primary" id="add-books-btn" (click)="addAdmin()">Add Admin</button>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>UserId</th>
         <th>Password</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody *ngIf = "admins.length > 1">
       <tr *ngFor = "let admin of admins">
-        <td>{{admin.id}}</td>
         <td>{{admin.name}}</td>
         <td>{{admin.username}}</td>
         <td>{{admin.password}}</td>
+        <td>
+          <div class="button-group">
+            <Button type="button" class="btn-primary" (click)="deleteAdmin(admin.id)">Delete</Button>
+            <Button type="button" class="btn-primary">Update</Button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

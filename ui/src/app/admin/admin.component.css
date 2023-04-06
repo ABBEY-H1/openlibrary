@@ -33,4 +33,7 @@ table {
   tbody tr:hover {
     background-color: #e6e6e6;
   }
-  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }

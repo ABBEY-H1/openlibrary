@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-author.component.css">
+  </head> 
+  <body>
+    <form [formGroup]="authorForm" (ngSubmit)="saveAuthor()">
+      <label>
+        <span>Name</span>
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        <span>Birth-Date</span>
+        <input type="date" formControlName="birthDate">
+      </label>
+      <label>
+        <span>Nationality</span>
+        <input type="text" formControlName="nationality">
+      </label>
+
+      <div *ngIf="authorForm.valid">
+      <input type="submit" value="Submit">
+    </div>
+    <h1>{{authorForm.value | json}}</h1>
+
+    </form>
+</body>
+  </html>

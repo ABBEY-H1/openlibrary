@@ -6,23 +6,29 @@
   <link rel="stylesheet" href="publisher.component.css">
 </head>
 <h1>PUBLISHER TABLE</h1>
+<button type="button" class="btn-primary" (click)="addPublisher()">Add Publisher</button>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let publisher of publishers">
-        <td>{{publisher.id}}</td>
         <td>{{publisher.name}}</td>
         <td>{{publisher.phone}}</td>
         <td>{{publisher.email}}</td>
         <td>{{publisher.address}}</td>
+        <td>
+          <div class="button-group">
+            <Button type="button" class="btn-primary" (click)="deletePublisher(publisher.id)">Delete</Button>
+            <Button type="button" class="btn-primary">Update</Button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

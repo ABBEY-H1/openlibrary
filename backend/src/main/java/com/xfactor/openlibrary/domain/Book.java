@@ -1,5 +1,7 @@
 package com.xfactor.openlibrary.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Book {
     @Column
     private String isbn;
     @Column
-    private String publicationDate;
+    private LocalDate publicationDate;
     @Column
     private String publisher;
     @Column
@@ -59,10 +61,10 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    public String getPublicationDate() {
+    public LocalDate getPublicationDate() {
         return publicationDate;
     }
-    public void setPublicationDate(String publicationDate) {
+    public void setPublicationDate(LocalDate publicationDate) {
         this.publicationDate = publicationDate;
     }
     public String getPublisher() {

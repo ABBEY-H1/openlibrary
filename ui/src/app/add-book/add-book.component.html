@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-book.component.css">
+  </head>
+  <body>
+    <form [formGroup]="bookForm" (ngSubmit)="saveBook()">
+      <label>
+        <span>Title</span>
+        <input type="text" formControlName="title">
+      </label>
+      <label>
+        <span>Author</span>
+        <input type="text" formControlName="author">
+      </label>
+      <label>
+        <span>Publisher</span>
+        <input type="text" formControlName="publisher">
+      </label>
+      <label>
+        <span>Copies</span>
+        <input type="number" formControlName="copies">
+      </label>
+      <label>
+        <span>ISBN</span>
+        <input type="text" formControlName="isbn">
+      </label>
+      <label>
+        <span>Genre</span>
+        <input type="text" formControlName="genre">
+      </label>
+      <label>
+        <span>Sub-Genre</span>
+        <input type="text" formControlName="subGenre">
+      </label>
+      <label>
+        <span>Publication Date</span>
+        <input type="date" formControlName="publicationDate" >
+      </label>
+
+      <div *ngIf="bookForm.valid">
+      <input type="submit" value="Submit">
+    </div>
+    <h1>{{bookForm.value | json}}</h1>
+    </form>
+</body>
+  </html>

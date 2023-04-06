@@ -5,21 +5,27 @@
   <link rel="stylesheet" href="author.component.css">
 </head>
 <h1>AUTHOR TABLE</h1>
+<button type="button" class="btn-primary" (click)="addAuthor()">Add Author</button>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Birth-Date</th>
         <th>Nationality</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody *ngIf="authors.length > 1">
       <tr *ngFor="let author of authors">
-        <td>{{author.id}}</td>
         <td>{{author.name}}</td>
         <td>{{author.birthDate}}</td>
         <td>{{author.nationality}}</td>
+        <td>
+          <div class="button-group">
+            <Button type="button" class="btn-primary" (click)="deleteAuthor(author.id)">Delete</Button>
+            <Button type="button" class="btn-primary">Update</Button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

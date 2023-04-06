@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-student.component.css">
+  </head>
+  <body>
+    <form [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+      <label>
+        <span>Name</span>
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        <span>Department</span>
+        <input type="text" formControlName="dept">
+      </label>
+      <label>
+        <span>Roll No.</span>
+        <input type="text" formControlName="rollNo">
+      </label>
+      <label>
+        <span>Mobile</span>
+        <input type="number" formControlName="mobile">
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="text" formControlName="email">
+      </label>
+      <label>
+        <span>Birth Day</span>
+        <input type="date" formControlName="birthDate" >
+      </label>
+
+      <div *ngIf="studentForm.valid">
+      <input type="submit" value="Submit">
+    </div>
+    <h1>{{studentForm.value | json}}</h1>
+    </form>
+</body>
+  </html>

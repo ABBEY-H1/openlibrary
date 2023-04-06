@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-book',
@@ -7,35 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  books = [
-    {
-      "id": 1,
-      "title": "AB",
-      "author": "string",
-      "isbn": "string",
-      "publicationDate": "string",
-      "publisher": "string",
-      "copies": 0,
-      "category": "string",
-      "genre": "string",
-      "subGenre": "string"
-    },
-    {
-      "id": 33,
-      "title": "ABBEY",
-      "author": "string",
-      "isbn": "string",
-      "publicationDate": "22-66-32",
-      "publisher": "string",
-      "copies": 0,
-      "category": "string",
-      "genre": "string",
-      "subGenre": "string"
-    }
-  ];
-  constructor() { }
+  addBooks(){
+    console.log("Hello World");
+    this.router.navigateByUrl('/add-book')
+    
+  }
+
+  books: any = [];
+
+  constructor(private router : Router, private http: HttpClient) {
+   }
 
   ngOnInit(): void {
+    this.fetchAllBooks()
+  }
+
+  fetchAllBooks(){
+    this.http.get("http://localhost:8080/BooksController/getAllBooks")
+    .subscribe(resp =>{
+      this.books = resp;
+      console.log('Books retrieved successfully:', this.books)
+    }, error => {
+      console.error('Error retrieving books:', error);
+    });
+  }
+
+  deleteBook(id: Number){
+    this.http.delete("http://localhost:8080/BooksController/deleteBook/"+id)
+    .subscribe(resp => {
+      console.log(resp);
+      this.fetchAllBooks();
+    },
+    error => {
+      console.log(error);
+    })
+
   }
 
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-publisher.component.css">
+  </head> 
+  <body>
+    <form [formGroup]="publisherForm" (ngSubmit)="savePublisher()">
+      <label>
+        <span>Name</span>
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        <span>Phone</span>
+        <input type="number" formControlName="phone">
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="text" formControlName="email">
+      </label>
+      <label>
+        <span>Address</span>
+        <input type="text" formControlName="address">
+      </label>
+
+      <div *ngIf="publisherForm.valid">
+      <input type="submit" value="Submit">
+    </div>
+    <h1>{{publisherForm.value | json}}</h1>
+
+    </form>
+</body>
+  </html>

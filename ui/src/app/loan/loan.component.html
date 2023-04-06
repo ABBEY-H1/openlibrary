@@ -6,25 +6,31 @@
   <link rel="stylesheet" href="loan.component.css">
 </head>
 <h1>LOAN TABLE</h1>
+<button type="button" class="btn-primary" (click)="addLoan()">Add Loan</button>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Student-ID</th>
         <th>Book-ID</th>
         <th>Check-Out Date</th>
         <th>Due Date</th>
         <th>Return Date</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let loan of loans">
-        <td>{{loan.id}}</td>
         <td>{{loan.studentId}}</td>
         <td>{{loan.bookId}}</td>
         <td>{{loan.checkOutDate}}</td>
         <td>{{loan.dueDate}}</td>
         <td>{{loan.returnDate}}</td>
+        <td>
+          <div class="button-group">
+            <Button type="button" class="btn-primary" (click)="deleteLoan(loan.id)">Delete</Button>
+            <Button type="button" class="btn-primary">Update</Button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

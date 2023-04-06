@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-admin.component.css">
+  </head> 
+  <body>
+    <form [formGroup]="adminForm" (ngSubmit)="saveAdmin()">
+      <label>
+        <span>Name</span>
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        <span>User Name</span>
+        <input type="text" formControlName="username">
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" formControlName="password" [(ngModel)]="password">
+      </label>
+      <label>
+        <span>Confirm Password</span>
+        <input type="password" formControlName="confirmPassword" [(ngModel)]="confirmPassword">
+      </label>
+
+      <div *ngIf="adminForm.valid">
+        <div *ngIf="password == confirmPassword">
+      <input type="submit" value="Submit">
+    </div>
+    </div>
+    <h1>{{adminForm.value | json}}</h1>
+
+    </form>
+</body>
+  </html>

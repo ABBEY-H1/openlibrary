@@ -6,25 +6,31 @@
   <link rel="stylesheet" href="student.component.css">
 </head>
 <h1>STUDENT TABLE</h1>
+<button type="button" class="btn-primary" id="add-students-btn" (click)="addStudents()">Add Student</button>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Department</th>
         <th>Roll No.</th>
         <th>Phone No.</th>
         <th>Birth-Date</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let student of students">
-        <td>{{student.id}}</td>
         <td>{{student.name}}</td>
         <td>{{student.dept}}</td>
         <td>{{student.rollNo}}</td>
         <td>{{student.mobile}}</td>
         <td>{{student.birthDay}}</td>
+        <td>
+          <div class="button-group">
+            <Button type="button" class="btn-primary" (click)="deleteStudent(student.id)">Delete</Button>
+            <Button type="button" class="btn-primary">Update</Button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

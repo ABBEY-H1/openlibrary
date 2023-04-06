@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="add-loan.component.css">
+  </head> 
+  <body>
+    <form [formGroup]="loanForm" (ngSubmit)="saveLoan()">
+      <label>
+        <span>Student-ID</span>
+        <input type="text" formControlName="studentId">
+      </label>
+      <label>
+        <span>Book-ID</span>
+        <input type="text" formControlName="bookId">
+      </label>
+      <label>
+        <span>Check-Out Date</span>
+        <input type="date" formControlName="checkOutDate">
+      </label>
+      <label>
+        <span>Due Date</span>
+        <input type="date" formControlName="dueDate">
+      </label>
+      <label>
+        <span>Return Date</span>
+        <input type="date" formControlName="returnDate">
+      </label>
+
+
+      <div *ngIf="loanForm.valid">
+      <input type="submit" value="Submit">
+    </div>
+    <h1>{{loanForm.value | json}}</h1>
+
+    </form>
+</body>
+  </html>
