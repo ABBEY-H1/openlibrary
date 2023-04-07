@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -8,13 +9,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+searchForm: FormGroup;
 
 addStudents(){
 this.router.navigateByUrl('/add-student');
 }
 
 students: any=[];
-  constructor(private router: Router, private http: HttpClient) { }
+constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) {
+  this.searchForm =this.formBuilder.group({
+    name: ['',Validators.required]
+  })
+
+ }
 
   ngOnInit(): void {
     this.fetchAllStudents();
@@ -40,6 +47,18 @@ students: any=[];
       console.log(error);
     })
 
+  }
+
+  searchByName(){
+    const name = this.searchForm.value.name;
+    this.http.get("http://localhost:8080/student/getStudentByName/"+name)
+    .subscribe( resp =>{
+      this.students = resp;
+      console.log(this.students);
+    }, 
+    error =>{
+      console.log(error);
+    })
   }
 
 }

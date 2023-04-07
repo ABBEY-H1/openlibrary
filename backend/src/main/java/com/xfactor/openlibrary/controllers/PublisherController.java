@@ -68,7 +68,7 @@ public class PublisherController {
     }
 
     @GetMapping("/getPublisherByName/{name}")
-    public Publisher getPublisherByName(@PathVariable String name)
+    public List<Publisher> getPublisherByName(@PathVariable String name)
     {
         return publisherRepository.findByName(name);
     }

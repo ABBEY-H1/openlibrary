@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-publisher',
@@ -8,9 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./publisher.component.css']
 })
 export class PublisherComponent implements OnInit {
+  searchForm: FormGroup
 
   publishers : any = [];
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) {
+    this.searchForm =this.formBuilder.group({
+      name: ['',Validators.required]
+    })
+
+   }
 
   ngOnInit(): void {
     this.fetchAll();
@@ -41,5 +48,18 @@ export class PublisherComponent implements OnInit {
       })
   
     }
+
+    searchByName(){
+      const name = this.searchForm.value.name;
+      this.http.get("http://localhost:8080/PublisherController/getPublisherByName/"+name)
+      .subscribe( resp =>{
+        this.publishers = resp;
+        console.log(this.publishers);
+      }, 
+      error =>{
+        console.log(error);
+      })
+    }
+
   }
 

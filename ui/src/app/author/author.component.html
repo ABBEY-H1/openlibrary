@@ -4,8 +4,20 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="author.component.css">
 </head>
-<h1>AUTHOR TABLE</h1>
-<button type="button" class="btn-primary" (click)="addAuthor()">Add Author</button>
+<body>
+<div class="header">
+  <h1>AUTHOR TABLE</h1>
+  <button type="button" class="btn-primary" (click)="addAuthor()">Add Author</button>
+</div>
+
+<form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
+  <div class="button-group">
+    <label for="search">Search:</label>
+    <input type="text" formControlName="name" placeholder="Enter author name.....">
+    <button type="submit">Go</button>
+  </div>
+</form>
+
   <table>
     <thead>
       <tr>
@@ -22,11 +34,12 @@
         <td>{{author.nationality}}</td>
         <td>
           <div class="button-group">
-            <Button type="button" class="btn-primary" (click)="deleteAuthor(author.id)">Delete</Button>
-            <Button type="button" class="btn-primary">Update</Button>
+            <Button type="submit" class="buttondel" (click)="deleteAuthor(author.id)">Delete</Button>
+            <Button type="submit" class="buttonupdate">Update</Button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+</body>
 </html>

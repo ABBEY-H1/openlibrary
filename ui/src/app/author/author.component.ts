@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,10 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.css']
 })
-export class AuthorComponent implements OnInit {
+export class AuthorComponent implements OnInit { 
+  searchForm: FormGroup;
 
   authors :any =[];
-  constructor(private router:Router, private http:HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder) {
+    this.searchForm =this.formBuilder.group({
+      name: ['',Validators.required]
+    })
+
+   }
 
   ngOnInit(): void {
     this.fetchAll();
@@ -41,6 +48,18 @@ deleteAuthor(id: Number){
     console.log(error);
   })
 
+}
+
+searchByName(){
+  const name = this.searchForm.value.name;
+  this.http.get("http://localhost:8080/AuthorController/getAuthorByName/"+name)
+  .subscribe( resp =>{
+    this.authors = resp;
+    console.log(this.authors);
+  }, 
+  error =>{
+    console.log(error);
+  })
 }
 
 }

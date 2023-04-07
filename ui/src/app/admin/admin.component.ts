@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -8,12 +9,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+searchForm: FormGroup;
+
  addAdmin(){
   this.route.navigateByUrl('/add-admin')
  }
  admins : any = [];
 
-  constructor(private route: Router, private http: HttpClient) {
+  constructor(private route: Router, private http: HttpClient, private formBuilder: FormBuilder) {
+    this.searchForm =this.formBuilder.group({
+      name: ['',Validators.required]
+    })
+
    }
 
   ngOnInit(): void {
@@ -42,5 +49,17 @@ export class AdminComponent implements OnInit {
       console.log(error);
     })
 
+  }
+
+  searchByName(){
+    const name = this.searchForm.value.name;
+    this.http.get("http://localhost:8080/AdminController/getAdminByName/"+name)
+    .subscribe( resp =>{
+      this.admins = resp;
+      console.log(this.admins);
+    }, 
+    error =>{
+      console.log(error);
+    })
   }
 }

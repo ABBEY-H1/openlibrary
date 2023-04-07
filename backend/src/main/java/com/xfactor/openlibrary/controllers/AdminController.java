@@ -65,7 +65,7 @@ public class AdminController {
     }
 
     @GetMapping("/getAdminByName/{name}")
-    public Admin getAdminByName(@PathVariable String name)
+    public List<Admin> getAdminByName(@PathVariable String name)
     {
         return adminRepository.findByName(name);
     }

@@ -62,13 +62,13 @@ public class LoanController {
     }
 
     @GetMapping("/getLoanByStudentId")
-    public Loan getLoanByStudentId(@PathVariable Long studentId)
+    public List<Loan> getLoanByStudentId(@PathVariable Long studentId)
     {
         return loanRepository.findByStudentId(studentId);
     }
 
     @GetMapping("/getLoanByBookId")
-    public Loan getLoanByBookId(@PathVariable Long bookId)
+    public List<Loan> getLoanByBookId(@PathVariable Long bookId)
     {
         return loanRepository.findByStudentId(bookId);
     }

@@ -67,7 +67,7 @@ public class StudentController {
         }
 
     @GetMapping("/getStudentByName/{name}")
-    public Student getStudentByName(@PathVariable String name)
+    public List<Student> getStudentByName(@PathVariable String name)
     {
         return studentRepository.findByName(name);
     }

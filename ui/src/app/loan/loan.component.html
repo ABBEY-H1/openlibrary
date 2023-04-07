@@ -5,6 +5,7 @@
   <title>Loan Table</title>
   <link rel="stylesheet" href="loan.component.css">
 </head>
+<body>
 <h1>LOAN TABLE</h1>
 <button type="button" class="btn-primary" (click)="addLoan()">Add Loan</button>
   <table>
@@ -27,11 +28,12 @@
         <td>{{loan.returnDate}}</td>
         <td>
           <div class="button-group">
-            <Button type="button" class="btn-primary" (click)="deleteLoan(loan.id)">Delete</Button>
-            <Button type="button" class="btn-primary">Update</Button>
+            <Button type="submit" class="buttondel" (click)="deleteLoan(loan.id)">Delete</Button>
+            <Button type="submit" class="buttonupdate">Update</Button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+</body>
 </html>

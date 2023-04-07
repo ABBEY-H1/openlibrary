@@ -67,7 +67,7 @@ public class AuthorController {
     }
 
     @GetMapping("/getAuthorByName/{name}")
-    public Author geAuthorByName(@PathVariable String name)
+    public List<Author> geAuthorByName(@PathVariable String name)
     {
         return authorRepository.findByName(name);
     }

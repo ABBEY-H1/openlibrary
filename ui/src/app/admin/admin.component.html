@@ -5,9 +5,20 @@
   <title>Admin Table</title>
   <link rel="stylesheet" href="admin.component.css">
 </head>
+<body>
+<div class="header">
+  <h1>BOOK TABLE</h1>
+  <button type="button" class="btn-primary" id="add-books-btn" (click)="addAdmin()">Add Admin</button>
+</div>
 
-<h1>ADMIN TABLE</h1>
-<button type="button" class="btn-primary" id="add-books-btn" (click)="addAdmin()">Add Admin</button>
+<form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
+  <div class="button-group">
+    <label for="search">Search:</label>
+    <input type="text" formControlName="name" placeholder="Enter admin name.....">
+    <button type="submit">Go</button>
+  </div>
+</form>
+
   <table>
     <thead>
       <tr>
@@ -17,18 +28,19 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody *ngIf = "admins.length > 1">
+    <tbody *ngIf = "admins.length > 0">
       <tr *ngFor = "let admin of admins">
         <td>{{admin.name}}</td>
         <td>{{admin.username}}</td>
         <td>{{admin.password}}</td>
         <td>
           <div class="button-group">
-            <Button type="button" class="btn-primary" (click)="deleteAdmin(admin.id)">Delete</Button>
-            <Button type="button" class="btn-primary">Update</Button>
+            <Button type="submit" class="buttondel" (click)="deleteAdmin(admin.id)">Delete</Button>
+            <Button type="submit" class="buttonupdate">Update</Button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+</body>
 </html>  

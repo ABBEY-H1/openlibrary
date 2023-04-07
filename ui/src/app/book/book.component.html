@@ -5,8 +5,20 @@
   <title>Book Table</title>
   <link rel="stylesheet" href="book.component.css">
 </head>
-<h1>BOOK TABLE</h1>
-<button type="button" class="btn-primary" id="add-books-btn" (click)="addBooks()">Add Books</button>
+<body>
+  <div class="header">
+    <h1>BOOK TABLE</h1>
+    <button type="button" class="btn-primary" id="add-books-btn" (click)="addBooks()">Add Books</button>
+  </div>
+  
+  <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
+    <div class="button-group">
+      <label for="search">Search:</label>
+      <input type="text" formControlName="name" placeholder="Enter book name.....">
+      <button type="submit">Go</button>
+    </div>
+  </form>
+
   <table>
     <thead>
       <tr>
@@ -33,11 +45,12 @@
         <td>{{book.publicationDate}}</td>
         <td>
           <div class="button-group">
-            <Button type="button" class="btn-primary" (click)="deleteBook(book.id)">Delete</Button>
-            <Button type="button" class="btn-primary">Update</Button>
+            <Button type="submit" class="buttondel" (click)="deleteBook(book.id)">Delete</Button>
+            <Button type="submit" class="buttonupdate">Update</Button>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+</body>
 </html>
