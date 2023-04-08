@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="author.component.css">
 </head>
-<body>
-<div class="header">
+<div class="container">
   <h1>AUTHOR TABLE</h1>
-  <button type="button" class="btn-primary" (click)="addAuthor()">Add Author</button>
+<div class="button-group">
+  <button type="button" class="button" (click)="addAuthor()">Add Author</button>
 </div>
 
 <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
@@ -18,28 +18,24 @@
   </div>
 </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Birth-Date</th>
-        <th>Nationality</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody *ngIf="authors.length > 1">
-      <tr *ngFor="let author of authors">
-        <td>{{author.name}}</td>
-        <td>{{author.birthDate}}</td>
-        <td>{{author.nationality}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deleteAuthor(author.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+<div class="tablee">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Name</div>
+      <div class="col col-2">Birth-Date</div>
+      <div class="col col-3">Nationality</div>
+      <div class="col col-4">Actions</div>
+    </li>
+    <li class="table-row" *ngFor="let author of authors">
+      <div class="col col-1" data-label="Name">{{author.name}}</div>
+      <div class="col col-2" data-label="Birth-Date">{{author.birthDate}}</div>
+      <div class="col col-3" data-label="Nationality">{{author.nationality}}</div>
+      <div class="col col-4 button-group" data-label="Actions">
+        <Button type="submit" class="buttondel" (click)="deleteAuthor(author.id)">Delete</Button>
+        <Button type="submit" class="buttonupdate">Update</Button>
+      </div>     
+    </li>
+  </ul>
+</div>
+</div>
 </html>

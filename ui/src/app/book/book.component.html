@@ -5,12 +5,11 @@
   <title>Book Table</title>
   <link rel="stylesheet" href="book.component.css">
 </head>
-<body>
-  <div class="header">
+<div class="container">
     <h1>BOOK TABLE</h1>
-    <button type="button" class="btn-primary" id="add-books-btn" (click)="addBooks()">Add Books</button>
+    <div class="button-group">
+    <button type="button" class="button" id="add-books-btn" (click)="addBooks()">Add Books</button>
   </div>
-  
   <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
     <div class="button-group">
       <label for="search">Search:</label>
@@ -19,38 +18,34 @@
     </div>
   </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Publisher</th>
-        <th>Copies</th>
-        <th>ISBN</th>
-        <th>Genre</th>
-        <th>Sub-Genre</th>
-        <th>Publication Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of books">
-        <td>{{book.title}}</td>
-        <td>{{book.author}}</td>
-        <td>{{book.publisher}}</td>
-        <td>{{book.copies}}</td>
-        <td>{{book.isbn}}</td>
-        <td>{{book.genre}}</td>
-        <td>{{book.subGenre}}</td>
-        <td>{{book.publicationDate}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deleteBook(book.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+  <div class="tablee">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Title</div>
+        <div class="col col-2">Author</div>
+        <div class="col col-3">Publisher</div>
+        <div class="col col-4">Copies</div>
+        <div class="col col-5">ISBN</div>
+        <div class="col col-6">Genre</div>
+        <div class="col col-7">Sub-Genre</div>
+        <div class="col col-8">Publication Date</div>
+        <div class="col col-9">Actions</div>
+      </li>
+      <li class="table-row" *ngFor="let book of books">
+        <div class="col col-1" data-label="Title">{{book.title}}</div>
+        <div class="col col-2" data-label="Author">{{book.author}}</div>
+        <div class="col col-3" data-label="Publisher">{{book.publisher}}</div>
+        <div class="col col-4" data-label="Copies">{{book.copies}}</div>
+        <div class="col col-5" data-label="ISBN">{{book.isbn}}</div>
+        <div class="col col-6" data-label="Genre">{{book.genre}}</div>
+        <div class="col col-7" data-label="Sub-Genre">{{book.subGenre}}</div>
+        <div class="col col-8" data-label="Publication Date">{{book.publicationDate}}</div>
+        <div class="col col-9 button-group" data-label="Actions">
+          <Button type="submit" class="buttondel" (click)="deleteBook(book.id)">Delete</Button>
+          <Button type="submit" class="buttonupdate">Update</Button>
+        </div>     
+      </li>
+    </ul>
+  </div>
+</div>
 </html>

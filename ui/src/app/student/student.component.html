@@ -5,11 +5,11 @@
   <title>Student Table</title>
   <link rel="stylesheet" href="student.component.css">
 </head>
-<body>
-
-  <div class="header">
-    <h1>STUDENT TABLE</h1>
-    <button type="button" class="btn-primary" id="add-students-btn" (click)="addStudents()">Add Student</button>
+<div class="container">
+  <h1>STUDENT TABLE</h1>
+  
+  <div class="button-group">
+    <button type="button" class="button" id="add-students-btn" (click)="addStudents()">Add Student</button>
   </div>
 
   <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
@@ -19,33 +19,28 @@
       <button type="submit">Go</button>
     </div>
   </form>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Roll No.</th>
-        <th>Phone No.</th>
-        <th>Birth-Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{student.name}}</td>
-        <td>{{student.dept}}</td>
-        <td>{{student.rollNo}}</td>
-        <td>{{student.mobile}}</td>
-        <td>{{student.birthDay}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deleteStudent(student.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+  <div class="tablee">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Name</div>
+      <div class="col col-2">Department</div>
+      <div class="col col-3">Roll No.</div>
+      <div class="col col-4">Phone No.</div>
+      <div class="col col-5">Birth-Day</div>
+      <div class="col col-6">Actions</div>
+    </li>
+    <li class="table-row" *ngFor="let student of students">
+      <div class="col col-1" data-label="Name">{{student.name}}</div>
+      <div class="col col-2" data-label="Department">{{student.dept}}</div>
+      <div class="col col-3" data-label="Roll No.">{{student.rollNo}}</div>
+      <div class="col col-4" data-label="Phone No.">{{student.mobile}}</div>
+      <div class="col col-5" data-label="Birth-Date">{{student.birthDay}}</div>
+      <div class="col col-6 button-group" data-label="Actions">
+        <Button type="submit" class="buttondel" (click)="deleteStudent(student.id)">Delete</Button>
+        <Button type="submit" class="buttonupdate">Update</Button>
+      </div>     
+    </li>
+  </ul>
+</div>
+</div>
 </html>

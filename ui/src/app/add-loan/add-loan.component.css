@@ -33,3 +33,13 @@ form {
   input[type="submit"]:hover {
     background-color: #010101;
   }
+  .container {
+    text-decoration: double;
+    color: #f9f9f9;
+    font-family: 'lato', sans-serif;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }

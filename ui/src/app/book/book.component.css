@@ -1,105 +1,214 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-  }
-  h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: large;
-    text-align: center;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
+body {
   
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+  background-color: transparent;
+}
+.container {
+  text-decoration: double;
+  color: #f9f9f9;
+  font-family: 'lato', sans-serif;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tablee {
+  font-family: 'lato', sans-serif;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #080808;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+}
+h2 small {
+  font-size: 0.5em;
+}
+
+.responsive-table li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-evenly ;
+  margin-bottom: 25px;
+}
+.responsive-table .table-header {
+  text-align: center;
+  justify-content: space-evenly ;
+  background-color: #95A5A6;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.responsive-table .table-row {
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+.responsive-table .col-1 {
+  padding: auto;
+  flex-basis: 11.11%;
+  margin: auto;
+}
+.responsive-table .col-2 {
+  padding: auto;
+  flex-basis:11.11% ;
+  margin: auto;
+}
+.responsive-table .col-3 {
+  padding: auto;
+  flex-basis:11.11%;
+  margin: auto;
+}
+.responsive-table .col-4 {
+  padding: auto;
+  flex-basis:11.11%;
+  margin: auto;
+}
+.responsive-table .col-5 {
+  padding: auto;
+  flex-basis:11.11%;
+  margin: auto;
+}
+.responsive-table .col-6 {
+  padding: auto;
+  flex-basis:11.11%;
+  margin: auto;
+}
+.responsive-table .col-7 {
+  padding: auto;
+  flex-basis:20%;
+  margin: auto;
+}
+.responsive-table .col-8 {
+  padding: auto;
+  flex-basis:11.11%;
+  margin: auto;
+}
+.responsive-table .col-9 {
+  padding: auto;
+  flex-basis:20%;
+  margin: auto;
+}
   
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+@media all and (max-width: 767px) {
+  .responsive-table .table-header {
+    display: none;
   }
-  
-  tbody tr:hover {
-    background-color: #e6e6e6;
+  .responsive-table li {
+    display: block;
   }
-  .button-group, .search-bar {
+  .responsive-table .col {
+    /* flex-basis:50%; */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
+    /* padding: 10px 0; */
   }
-  
-  .search-bar {
-    margin-left: 700px;
+  .responsive-table .col:before {
+    color: #6C7A89;
+    /* padding-right: 10px; */
+    content: attr(data-label);
+    /* flex-basis: 50%; */
+    text-align: right;
   }
-  label {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  input[type="text"] {
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0px 0px 5px #ccc;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  button[type="submit"] {
-    padding: 5px 10px;
-    background-color: #45a29e;
-    color: #080808;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .buttondel[type="submit"]:hover {
-    background-color: #F6756E;
-  }
-  
-  .buttondel[type="submit"] {
-    padding: 5px 10px;
-    background-color: #da3712;
-    color: #080808;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .buttonupdate[type="submit"]:hover {
-    background-color: #ffc45f
-  }
-  .buttonupdate[type="submit"] {
-    padding: 5px 10px;
-    background-color: #ff8a25;
-    color: #080808;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #66fcf1;
-  }
+}
+
+input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #45a29e;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="button"] {
+  padding: 5px 10px;
+  background-color: #45a29e;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  margin-right: 800px;
+}
+
+.buttondel[type="submit"]:hover {
+  background-color: #F6756E;
+}
+
+.buttondel[type="submit"] {
+  padding: 5px 10px;
+  background-color: #da3712;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.buttonupdate[type="submit"]:hover {
+  background-color: #ffc45f
+}
+.buttonupdate[type="submit"] {
+  padding: 5px 10px;
+  background-color: #ff8a25;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #66fcf1;
+}
+.button-group, .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.button-group, .search-bar {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.search-bar {
+  margin-left: 700px;
+}
+h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #66fcf1;
+}

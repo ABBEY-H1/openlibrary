@@ -18,7 +18,7 @@ studentForm: FormGroup;
       mobile:[''],
       email:['',Validators.email],
       rollNo:['',Validators.required],
-      birthDate:['',Validators.required]
+      birthDay:['',Validators.required]
     })
   }
 

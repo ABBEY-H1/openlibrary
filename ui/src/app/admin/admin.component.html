@@ -5,10 +5,10 @@
   <title>Admin Table</title>
   <link rel="stylesheet" href="admin.component.css">
 </head>
-<body>
-<div class="header">
+<div class="container">
   <h1>ADMIN TABLE</h1>
-  <button type="button" class="btn-primary" id="add-books-btn" (click)="addAdmin()">Add Admin</button>
+  <div class="button-group">
+  <button type="button" class="button" (click)="addAdmin()">Add Admin</button>
 </div>
 
 <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="search-bar">
@@ -19,28 +19,25 @@
   </div>
 </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>UserId</th>
-        <th>Password</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody *ngIf = "admins.length > 0">
-      <tr *ngFor = "let admin of admins">
-        <td>{{admin.name}}</td>
-        <td>{{admin.username}}</td>
-        <td>{{admin.password}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deleteAdmin(admin.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+
+<div class="tablee">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Name</div>
+      <div class="col col-2">Username</div>
+      <div class="col col-3">Password</div>
+      <div class="col col-4">Actions</div>
+    </li>
+    <li class="table-row" *ngFor = "let admin of admins">
+      <div class="col col-1" data-label="Name">{{admin.name}}</div>
+      <div class="col col-2" data-label="Username">{{admin.username}}</div>
+      <div class="col col-3" data-label="Password">{{admin.password}}</div>
+      <div class="col col-4 button-group" data-label="Actions">
+        <Button type="submit" class="buttondel" (click)="deleteAdmin(admin.id)">Delete</Button>
+        <Button type="submit" class="buttonupdate">Update</Button>
+      </div>     
+    </li>
+  </ul>
+</div>
+</div>
 </html>  

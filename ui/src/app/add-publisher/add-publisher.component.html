@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="add-publisher.component.css">
   </head> 
-  <body>
+  <div class="container">
     <form [formGroup]="publisherForm" (ngSubmit)="savePublisher()">
       <label>
         <span>Name</span>
@@ -29,5 +29,5 @@
     <h1>{{publisherForm.value | json}}</h1>
 
     </form>
-</body>
+  </div>
   </html>

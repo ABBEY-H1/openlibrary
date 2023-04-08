@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="add-loan.component.css">
   </head> 
-  <body>
+  <div class="container">
     <form [formGroup]="loanForm" (ngSubmit)="saveLoan()">
       <label>
         <span>Student-ID</span>
@@ -34,5 +34,5 @@
     <h1>{{loanForm.value | json}}</h1>
 
     </form>
-</body>
+  </div>
   </html>

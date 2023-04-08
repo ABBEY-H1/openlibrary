@@ -5,35 +5,34 @@
   <title>Loan Table</title>
   <link rel="stylesheet" href="loan.component.css">
 </head>
-<body>
+<div class="container">
 <h1>LOAN TABLE</h1>
+<div class="button-group">
 <button type="button" class="btn-primary" (click)="addLoan()">Add Loan</button>
-  <table>
-    <thead>
-      <tr>
-        <th>Student-ID</th>
-        <th>Book-ID</th>
-        <th>Check-Out Date</th>
-        <th>Due Date</th>
-        <th>Return Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let loan of loans">
-        <td>{{loan.studentId}}</td>
-        <td>{{loan.bookId}}</td>
-        <td>{{loan.checkOutDate}}</td>
-        <td>{{loan.dueDate}}</td>
-        <td>{{loan.returnDate}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deleteLoan(loan.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+</div>
+
+<div class="tablee">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Student-ID</div>
+      <div class="col col-2">Book-ID</div>
+      <div class="col col-3">Check-Out Date</div>
+      <div class="col col-4">Due Date</div>
+      <div class="col col-5">Return Date</div>
+      <div class="col col-6">Actions</div>
+    </li>
+    <li class="table-row" *ngFor="let loan of loans">
+      <div class="col col-1" data-label="Student-ID">{{loan.studentId}}</div>
+      <div class="col col-2" data-label="Book-ID">{{loan.bookId}}</div>
+      <div class="col col-3" data-label="Check-Out Date">{{loan.checkOutDate}}</div>
+      <div class="col col-4" data-label="Due Date">{{loan.dueDate}}</div>
+      <div class="col col-5" data-label="Return Date">{{loan.retunDate}}</div>
+      <div class="col col-6 button-group" data-label="Actions">
+      <Button type="submit" class="buttondel" (click)="deleteLoan(loan.id)">Delete</Button>
+      <Button type="submit" class="buttonupdate">Update</Button>
+      </div>     
+    </li>
+  </ul>
+</div>
+</div>
 </html>

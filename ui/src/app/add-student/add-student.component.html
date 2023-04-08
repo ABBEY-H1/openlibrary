@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="add-student.component.css">
   </head>
-  <body>
+  <div class="container">
     <form [formGroup]="studentForm" (ngSubmit)="saveStudent()">
       <label>
         <span>Name</span>
@@ -28,7 +28,7 @@
       </label>
       <label>
         <span>Birth Day</span>
-        <input type="date" formControlName="birthDate" >
+        <input type="date" formControlName="birthDay" >
       </label>
 
       <div *ngIf="studentForm.valid">
@@ -36,5 +36,5 @@
     </div>
     <h1>{{studentForm.value | json}}</h1>
     </form>
-</body>
+  </div>
   </html>
