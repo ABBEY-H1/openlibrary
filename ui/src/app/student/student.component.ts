@@ -61,4 +61,8 @@ constructor(private router: Router, private http: HttpClient, private formBuilde
     })
   }
 
+  updateStudent(sudentId: Number){
+    this.router.navigate(['update-student',sudentId])
+  }
+
 }

@@ -42,4 +42,8 @@ deleteLoan(id: Number){
 
 }
 
+updateLoan(loanId: Number){
+  this.router.navigate(['/update-loan', loanId])
+}
+
 }

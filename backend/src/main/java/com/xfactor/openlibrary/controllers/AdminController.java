@@ -1,7 +1,9 @@
 package com.xfactor.openlibrary.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,12 +37,17 @@ public class AdminController {
     }
 
     @GetMapping("/getAdminById/{id}")
-    public Admin getAdminId(@PathVariable Long id) {
+    public List<Admin> getAdminId(@PathVariable Long id) {
         Optional<Admin> optionalAdmin = adminRepository.findById(id);
-        if(optionalAdmin.isPresent())
-        return optionalAdmin.get();
+        List<Admin> adminList = new ArrayList<Admin>();
+        if(optionalAdmin.isPresent()){
+            adminList = optionalAdmin
+    .stream()
+    .collect(Collectors.toList());
+    return adminList;
+        }
         else
-        return null;
+        return adminList;
     }
 
     @PutMapping("/updateAdmin")

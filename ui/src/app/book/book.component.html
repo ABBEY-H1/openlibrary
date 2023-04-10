@@ -42,7 +42,7 @@
         <div class="col col-8" data-label="Publication Date">{{book.publicationDate}}</div>
         <div class="col col-9 button-group" data-label="Actions">
           <Button type="submit" class="buttondel" (click)="deleteBook(book.id)">Delete</Button>
-          <Button type="submit" class="buttonupdate">Update</Button>
+          <Button type="submit" class="buttonupdate" (click)="updateBook(book.id)">Update</Button>
         </div>     
       </li>
     </ul>

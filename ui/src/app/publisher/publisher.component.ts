@@ -61,5 +61,9 @@ export class PublisherComponent implements OnInit {
       })
     }
 
+    updatePublisher(publisherId: Number){
+      this.router.navigate(['/update-publisher',publisherId])
+    }
+
   }
 

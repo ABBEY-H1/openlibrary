@@ -62,4 +62,8 @@ searchForm: FormGroup;
       console.log(error);
     })
   }
+
+  updateAdmin(adminId: Number){
+    this.route.navigate(['/update-admin',adminId]);
+  }
 }

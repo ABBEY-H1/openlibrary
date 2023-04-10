@@ -12,6 +12,12 @@ import { StudentComponent } from './student/student.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
 import { AddLoanComponent } from './add-loan/add-loan.component';
 import { AddPublisherComponent } from './add-publisher/add-publisher.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { UpdateAuthorComponent } from './update-author/update-author.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
+import { UpdateLoanComponent } from './update-loan/update-loan.component';
+import { UpdatePublisherComponent } from './update-publisher/update-publisher.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 const routes: Routes = [{
   path: 'books',
@@ -21,6 +27,36 @@ const routes: Routes = [{
 {
   path: 'add-student',
   component : AddStudentComponent
+},
+
+{
+  path: 'update-admin/:id',
+  component : UpdateAdminComponent
+},
+
+{
+  path: 'update-author/:id',
+  component : UpdateAuthorComponent
+},
+
+{
+  path: 'update-book/:id',
+  component : UpdateBookComponent
+},
+
+{
+  path: 'update-loan/:id',
+  component : UpdateLoanComponent
+},
+
+{
+  path: 'update-publisher/:id',
+  component : UpdatePublisherComponent
+},
+
+{
+  path: 'update-student/:id',
+  component : UpdateStudentComponent
 },
 
 {

@@ -35,36 +35,10 @@
         <div class="col col-4" data-label="Address">{{publisher.address}}</div>
         <div class="col col-5 button-group" data-label="Actions">
           <Button type="submit" class="buttondel" (click)="deletePublisher(publisher.id)">Delete</Button>
-          <Button type="submit" class="buttonupdate">Update</Button>
+          <Button type="submit" class="buttonupdate" (click)="updatePublisher(publisher.id)">Update</Button>
         </div>     
       </li>
     </ul>
   </div>
-
-  <!-- <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let publisher of publishers">
-        <td>{{publisher.name}}</td>
-        <td>{{publisher.phone}}</td>
-        <td>{{publisher.email}}</td>
-        <td>{{publisher.address}}</td>
-        <td>
-          <div class="button-group">
-            <Button type="submit" class="buttondel" (click)="deletePublisher(publisher.id)">Delete</Button>
-            <Button type="submit" class="buttonupdate">Update</Button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
 </div>
 </html>

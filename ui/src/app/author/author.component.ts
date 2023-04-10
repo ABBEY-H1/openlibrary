@@ -62,4 +62,8 @@ searchByName(){
   })
 }
 
+updateAuthor(authorId:Number){
+  this.router.navigate(['/update-author',authorId]);
+}
+
 }

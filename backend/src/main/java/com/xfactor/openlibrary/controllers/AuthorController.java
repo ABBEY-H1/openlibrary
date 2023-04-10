@@ -2,6 +2,7 @@ package com.xfactor.openlibrary.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,10 +42,13 @@ public class AuthorController {
     }
 
     @GetMapping("/getAuthorById/{id}")
-    public Author getAuthorbyId(@PathVariable Long id) {
+    public List<Author> getAuthorbyId(@PathVariable Long id) {
         Optional<Author> optionalAuthor = authorRepository.findById(id);
-        if(optionalAuthor.isPresent())
-        return optionalAuthor.get();
+        if(optionalAuthor.isPresent()){
+            return optionalAuthor
+            .stream()
+            .collect(Collectors.toList());
+    }
         else
         return null;
     }

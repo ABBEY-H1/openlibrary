@@ -32,7 +32,7 @@
       <div class="col col-3" data-label="Nationality">{{author.nationality}}</div>
       <div class="col col-4 button-group" data-label="Actions">
         <Button type="submit" class="buttondel" (click)="deleteAuthor(author.id)">Delete</Button>
-        <Button type="submit" class="buttonupdate">Update</Button>
+        <Button type="submit" class="buttonupdate" (click)="updateAuthor(author.id)">Update</Button>
       </div>     
     </li>
   </ul>
